@@ -1,4 +1,9 @@
-export default function () {
-    console.log("Custom command.js package loaded.");
-    alert("Custom command from your GitHub has been executed!");
-}
+// Add a custom command to the terminal
+const commands = {
+    greet: () => {
+        return "Hello from the installed command!";
+    }
+};
+
+// When the script is loaded, add it to the global `commands` object of the terminal
+window.commands = { ...window.commands, ...commands };
