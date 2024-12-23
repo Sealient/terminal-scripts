@@ -1,4 +1,6 @@
-window.availableCommands = {
+window.availableCommands = window.availableCommands || {};
+
+Object.assign(window.availableCommands, {
     help: () => {
         const output = `
             Available commands:
@@ -17,4 +19,4 @@ window.availableCommands = {
         p.textContent = output;
         outputElement.appendChild(p);
     },
-};
+});
