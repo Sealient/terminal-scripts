@@ -1,6 +1,6 @@
-// Example of customCommand.js
+// Custom command example
 function customFunction() {
-  console.log("Custom command executed successfully!");
+  return 'Custom command executed successfully!';
 }
 
 customFunction();
