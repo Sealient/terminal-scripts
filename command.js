@@ -1,23 +1,20 @@
-// commands.js
-function showHelp() {
-  alert("Available commands:\nhelp - Displays this message\nwhoami - Shows who you are\nclear - Clears the terminal");
-}
-
-function showWhoami() {
-  alert("You are the master of this terminal.");
-}
-
-function clearTerminal() {
-  const terminalOutput = document.querySelector(".output");
-  terminalOutput.innerHTML = "";
-}
-
-// Registering the commands to be used in the terminal
-const availableCommands = {
-  help: showHelp,
-  whoami: showWhoami,
-  clear: clearTerminal
+window.availableCommands = {
+    help: () => {
+        const output = `
+            Available commands:
+            - help: Displays this message
+            - whoami: Shows who you are
+        `;
+        const outputElement = document.querySelector(".output");
+        const p = document.createElement("p");
+        p.textContent = output;
+        outputElement.appendChild(p);
+    },
+    whoami: () => {
+        const output = "You are a user of this terminal.";
+        const outputElement = document.querySelector(".output");
+        const p = document.createElement("p");
+        p.textContent = output;
+        outputElement.appendChild(p);
+    },
 };
-
-// Making the availableCommands object globally accessible
-window.availableCommands = availableCommands;
