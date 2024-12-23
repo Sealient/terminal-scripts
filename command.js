@@ -1,9 +1,13 @@
-// Add a custom command to the terminal
-const commands = {
-    greet: () => {
-        return "Hello from the installed command!";
+// Custom command from GitHub (command.js)
+const customCommand = {
+  'customCommand': async () => {
+    try {
+      const response = await fetch('https://cdn.jsdelivr.net/gh/Sealient/terminal-scripts@main/customCommand.js');
+      const commandScript = await response.text();
+      eval(commandScript); // Execute the custom command
+      return 'Custom command executed!';
+    } catch (error) {
+      return 'Failed to load or execute custom command.';
     }
+  }
 };
-
-// When the script is loaded, add it to the global `commands` object of the terminal
-window.commands = { ...window.commands, ...commands };
